@@ -30,6 +30,8 @@ appointmentsRouter.post('/', (request, response) => {
         id: uuid(),
         provider,
         date: date
+        //date: parsedDate
+        
     };
 
     appointments.push(appointment)
