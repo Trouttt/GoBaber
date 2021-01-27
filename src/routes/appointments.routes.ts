@@ -1,14 +1,9 @@
 import { Router } from 'express';
-import { uuid } from 'uuidv4';
+import Appointment from '../models/Appointment';
 //import { startOfHour, parseISO, isEqual} from 'date-fns';
 //parseISO = string to date.
 const appointmentsRouter = Router();
 
-interface Appointment {
-    id:string;
-    provider:string;
-    date:Date;
-}
 const appointments: Appointment[] = [];
 
 appointmentsRouter.post('/', (request, response) => {
@@ -26,13 +21,7 @@ appointmentsRouter.post('/', (request, response) => {
     if(findAppointmentInSameDate){
         return response.status(400).json({message: 'this appointment is already booked'})
     }
-    const appointment = {
-        id: uuid(),
-        provider,
-        date: date
-        //date: parsedDate
-        
-    };
+    const appointment = new Appointment(provider, date);
 
     appointments.push(appointment)
     return response.json(appointment);
