@@ -12,3 +12,4 @@ yarn dev:server
 
 yarn add uuidv4
 yarn add date-fns
+yarn add typeorm pg
