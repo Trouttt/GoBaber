@@ -16,3 +16,7 @@ yarn add typeorm pg
 yarn typeorm migration:create -n CreateAppointments
 yarn typeorm migration:run
 yarn add reflect-metadata
+//yarn typeorm migration:revert
+yarn typeorm migration:create -n CreateUsers
+yarn add bcryptjs
+yarn add -D @types/bcryptjs
