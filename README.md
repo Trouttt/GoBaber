@@ -20,3 +20,5 @@ yarn add reflect-metadata
 yarn typeorm migration:create -n CreateUsers
 yarn add bcryptjs
 yarn add -D @types/bcryptjs
+yarn add jsonwebtoken
+yarn add -D @types/jsonwebtoken
