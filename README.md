@@ -22,3 +22,6 @@ yarn add bcryptjs
 yarn add -D @types/bcryptjs
 yarn add jsonwebtoken
 yarn add -D @types/jsonwebtoken
+yarn add multer
+
+yarn add -D @types/multer
