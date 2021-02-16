@@ -1,8 +1,10 @@
 import { Router } from 'express';
 
 import CreateUserService from '../services/CreateUsersService';
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 import multer from 'multer';
 import uploadConfig from '../config/upload';
+import { UpdateDateColumn } from 'typeorm';
 
 //import ensureAuthenticated from '../middlewares/ensureAuthenticate';
 
@@ -33,6 +35,16 @@ usersRouter.post('/', async (request, response) => {
 })
 
 usersRouter.patch('/avatar',  upload.single('avatar') ,async(request, response) => {
-    return response.json({ok:true});
+    try{
+        const updateUserAvatar = new UpdateUserAvatarService();
+
+        const user = await updateUserAvatar.execute({
+            user_id: request.user.id,
+            avatarFilename:request.file.filename,
+        })
+        return response.status(200).json(user);
+    } catch (err) {
+        return response.status(400).json({ error: err.message });
+    }
 })
 export default usersRouter;
