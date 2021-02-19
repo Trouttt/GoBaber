@@ -1,10 +1,9 @@
 import { Router } from 'express';
 
-import CreateUserService from '../services/CreateUsersService';
-import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
+import CreateUserService from '../../../../modules/users/services/CreateUsersService';
+import UpdateUserAvatarService from '../../../../modules/users/services/UpdateUserAvatarService';
 import multer from 'multer';
-import uploadConfig from '../config/upload';
-import { UpdateDateColumn } from 'typeorm';
+import uploadConfig from '../../../../config/upload';
 
 //import ensureAuthenticated from '../middlewares/ensureAuthenticate';
 
